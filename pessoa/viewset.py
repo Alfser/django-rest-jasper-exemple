@@ -21,7 +21,9 @@ class PessoaViewSet(viewsets.ModelViewSet):
         responses={
             status.HTTP_200_OK: openapi.Response(
                 description="PDF file",
-                content_type={'application/pdf': {}},
+                content={
+                    'application/pdf': {}
+                }
             )
         }
     )
