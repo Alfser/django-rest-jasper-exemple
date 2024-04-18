@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.2.final using JasperReports Library version 6.21.2-8434a0bd7c3bbc37cbf916f2968d35e4b165821a  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="noDB-i18n" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ace40fb1-9c4a-4ddb-a336-5e0807ec7d54">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="cadastro db local"/>
+	<queryString language="plsql">
+		<![CDATA[select * from pessoa_pessoa;]]>
+	</queryString>
+	<field name="id" class="java.lang.Long">
+		<property name="com.jaspersoft.studio.field.name" value="id"/>
+		<property name="com.jaspersoft.studio.field.label" value="id"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pessoa_pessoa"/>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nome"/>
+		<property name="com.jaspersoft.studio.field.label" value="nome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pessoa_pessoa"/>
+	</field>
+	<field name="rua" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="rua"/>
+		<property name="com.jaspersoft.studio.field.label" value="rua"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pessoa_pessoa"/>
+	</field>
+	<field name="cidade" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cidade"/>
+		<property name="com.jaspersoft.studio.field.label" value="cidade"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pessoa_pessoa"/>
+	</field>
+	<field name="telefone" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="telefone"/>
+		<property name="com.jaspersoft.studio.field.label" value="telefone"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="pessoa_pessoa"/>
+	</field>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#006699" uuid="74e78ff0-dce3-409c-a428-4db7889dedfb"/>
+				<staticText>
+					<reportElement x="20" y="20" width="267" height="43" forecolor="#FFFFFF" uuid="2eb82090-beb9-4883-be78-6c6dc62ded8f"/>
+					<textElement>
+						<font size="30" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Cadastro Pessoa]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="298" y="43" width="277" height="20" forecolor="#FFFFFF" uuid="36d5c16a-72ff-4684-b0c7-2091610d809c"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Relatório Postgres]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="36">
+			<line>
+				<reportElement x="-20" y="21" width="595" height="1" forecolor="#666666" uuid="8f2d3992-ff0c-4ba0-b4f8-de603dcfb205"/>
+			</line>
+			<staticText>
+				<reportElement x="300" y="0" width="150" height="20" uuid="0095881e-c469-4f82-87a0-971cf997a58b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cidade]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="0" width="97" height="20" uuid="2986528c-c847-4177-b3b9-e45606f78d97"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="200" height="20" uuid="d520a1e2-f520-42d4-bb83-39e21400000d"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Rua]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="450" y="0" width="140" height="20" uuid="a7e601c7-d133-403e-9684-8b266400747b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Telefone]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="40">
+			<textField>
+				<reportElement x="1" y="0" width="99" height="26" uuid="7899db15-4e76-44c6-8e9a-9a57ded27741"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="200" height="26" uuid="c19e0f0c-f29c-4325-a647-d0c8ccc2e8b2">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="be2d52ea-55dc-4238-9433-9b0b78328353"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{rua}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="0" width="150" height="26" uuid="a2adf43b-6106-4bdb-ad31-062a9fd46ab4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="13610ae9-ef8f-48f5-b466-5be5ee33e534"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{cidade}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="0" width="105" height="26" uuid="60aa530c-36ea-4b69-a346-d498ebcdb31a">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="013a3fe1-fcfd-418d-840d-df6f099284f6"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{telefone}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="37">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="614f2fc1-72c0-4c9f-ac94-3d1f065c2780"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="38c8cc1c-3483-4c95-8e3a-6c42f4f59fce"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="5fe89924-3693-4130-aed3-7f26fb3c92b6"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>
