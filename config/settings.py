@@ -30,7 +30,7 @@ DEBUG = os.getenv('DEBUG') == 'true'
 
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(',')
 
-REPORTS_DIR = os.path.join(BASE_DIR, 'reports')
+REPORTS_DIR = os.path.join(BASE_DIR, 'jasper_report', 'reports')
 
 # Application definition
 

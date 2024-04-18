@@ -1,21 +1,19 @@
-
-import os
-import base64
-
 from django.http import HttpResponse
-from django.conf import settings
 from rest_framework import viewsets, status
 from rest_framework.decorators import action
-from rest_framework.response import Response
 from drf_yasg.utils import swagger_auto_schema
 from drf_yasg import openapi
-from pyreportjasper import PyReportJasper
+
+from jasper_report.services import JasperReportService
 
 from .models import Pessoa
 from .serializers import PessoaSerializer
 
 
 class PessoaViewSet(viewsets.ModelViewSet):
+    """
+        Endpoints people data registred in a system
+    """
     queryset = Pessoa.objects.all()
     serializer_class = PessoaSerializer
     
@@ -35,31 +33,11 @@ class PessoaViewSet(viewsets.ModelViewSet):
     )
     def export_people(self, request):
         """
-            Export People as PDF
+            Export People registered as PDF
         """
-        
-        input_file = os.path.join(settings.REPORTS_DIR, 'postgres.jrxml')
-        conn = {
-            'driver': 'postgres',
-            'username': settings.DB_USER,
-            'password': settings.DB_PASSSWORD,
-            'host': settings.DB_HOST,
-            'database': settings.DB_NAME,
-            'port': settings.DB_PORT,
-            'jdbc_driver': 'org.postgresql.Driver'
-        }
-        pyreportjasper = PyReportJasper()
-        pyreportjasper.config(
-            input_file=input_file,
-            db_connection=conn,
-            output_formats=["pdf"],
-            locale='pt_BR'
-        )
-        
-        report = pyreportjasper.instantiate_report()
-        output_stream_pdf = report.get_output_stream_pdf()
-        byte_array = output_stream_pdf.toByteArray()
-        pdf_bytes = bytes(byte_array)
+        jasper_service = JasperReportService()
+
+        pdf_bytes = jasper_service.get_pdf_bytes('postgres.jrxml')
         
         # config pdf in a response
         response = HttpResponse(content=pdf_bytes)
