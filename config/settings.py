@@ -30,6 +30,7 @@ DEBUG = os.getenv('DEBUG') == 'true'
 
 ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(',')
 
+REPORTS_DIR = os.path.join(BASE_DIR, 'jasper_report', 'reports')
 
 # Application definition
 
@@ -44,6 +45,13 @@ INSTALLED_APPS = [
     'drf_yasg',
     'pessoa.apps.PessoaConfig'
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ]
+}
 
 SWAGGER_SETTINGS = {
     'SECURITY_DEFINITIONS': {
@@ -87,14 +95,20 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+DB_NAME = os.getenv('DB_NAME')
+DB_USER = os.getenv('DB_USER')
+DB_PASSSWORD = os.getenv('DB_PASSSWORD')
+DB_HOST = os.getenv('DB_HOST')
+DB_PORT = os.getenv('DB_PORT')
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USER'),
-        'PASSWORD': os.getenv('DB_PASSSWORD'),
-        'HOST': os.getenv('DB_HOST'),
-        'PORT': os.getenv('DB_PORT'),
+        'NAME': DB_NAME,
+        'USER': DB_USER,
+        'PASSWORD': DB_PASSSWORD,
+        'HOST': DB_HOST,
+        'PORT': DB_PORT,
     }
 }
 
