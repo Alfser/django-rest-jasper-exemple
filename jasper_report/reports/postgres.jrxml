@@ -45,14 +45,14 @@
 					<textElement>
 						<font size="30" isBold="true"/>
 					</textElement>
-					<text><![CDATA[Cadastro Pessoa]]></text>
+					<text><![CDATA[People Report]]></text>
 				</staticText>
 				<staticText>
 					<reportElement x="298" y="43" width="277" height="20" forecolor="#FFFFFF" uuid="36d5c16a-72ff-4684-b0c7-2091610d809c"/>
 					<textElement textAlignment="Right">
 						<font size="14" isBold="false"/>
 					</textElement>
-					<text><![CDATA[Relatório Postgres]]></text>
+					<text><![CDATA[Django and Jasper Report exemple]]></text>
 				</staticText>
 			</frame>
 		</band>
